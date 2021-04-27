@@ -1,6 +1,6 @@
 import User from '../../models/UserModel';
 import connectDB from '../../services/dbService';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import cookie from 'cookie';
 import jwt from 'jsonwebtoken';
 import { validate } from '../../middlewares/validate';

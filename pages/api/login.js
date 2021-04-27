@@ -2,7 +2,7 @@ import User from '../../models/UserModel';
 import connectDB from '../../services/dbService';
 import cookie from 'cookie';
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { validate } from '../../middlewares/validate';
 import { LoginSchema } from '../../schemas/userSchema';
 
