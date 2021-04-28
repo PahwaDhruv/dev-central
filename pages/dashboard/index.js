@@ -7,7 +7,7 @@ import checkUser from '../../utils/checkUser';
 
 const Dashboard = ({auth}) => {
     const router = useRouter();
-    
+    console.log(auth);
     useEffect(() => {
         redirect();
     }, [])
@@ -21,8 +21,9 @@ const Dashboard = ({auth}) => {
     return (
         <div>
             {
-                !auth.loading && auth.isAuthenticated && (<p>Welcome <strong>{auth.user.name}</strong></p>) 
+                (!auth.loading && auth.isAuthenticated && auth.user.name) && (<p>Welcome <strong>{auth.user.name}</strong></p>) 
             }
+            {/* <h1>Dashboard</h1> */}
         </div>
     )
 }

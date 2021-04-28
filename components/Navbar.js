@@ -9,16 +9,16 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
     const authLinks = (
         <ul>
             <li>
-                <a href="#" onClick={logout}><i className="fas fa-sign-out-alt"></i>{' '}<span className="hide-sm">Logout</span></a>
+                <Link href="/logout"><a><i className="fas fa-sign-out-alt"></i>{' '}<span className="hide-sm">Logout</span></a></Link>
             </li>
         </ul>
     )
 
     const guestLinks = (
         <ul>
-            <li><Link href="#"><a href="profiles.html">Developers</a></Link></li>
-            <li><Link href="/register"><a href="profiles.html">Register</a></Link></li>
-            <li><Link href="/login"><a href="profiles.html">Login</a></Link></li>
+            <li><Link href="/dashboard"><a>Dashboard</a></Link></li>
+            <li><Link href="/register"><a>Register</a></Link></li>
+            <li><Link href="/login"><a>Login</a></Link></li>
         </ul>
     )
     return(
@@ -41,7 +41,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
 }
 
 Navbar.prototype = {
-    logout: PropTypes.func.isRequired,
+    // logout: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
 }
 const mapStateToProps = state =>{
@@ -49,4 +49,4 @@ const mapStateToProps = state =>{
         auth: state.auth
     }
 }
-export default connect(mapStateToProps, {logout})(Navbar);
+export default connect(mapStateToProps)(Navbar);

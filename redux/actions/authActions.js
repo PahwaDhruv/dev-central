@@ -4,7 +4,6 @@ import {USER_LOADED, AUTH_ERROR, REGISTER_SUCCESS, REGISTER_ERROR, LOGIN_SUCCESS
 
 //Load User
 export const loadUser = () => async dispatch => {
-    console.log('hello')
     try {
         const res = await axios.get('/api/auth');
         console.log(res.data);
@@ -74,7 +73,7 @@ export const loginUser = (auth) => async dispatch => {
 export const logout = () => async dispatch => {
     try {
         const res = await axios.post('/api/logout');
-        if(res.data && res.data.status){
+        if(res.data && res.data.status){    
             dispatch({
                 type: LOGOUT
             })
