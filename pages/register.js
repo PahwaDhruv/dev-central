@@ -6,7 +6,7 @@ import {setAlert} from '../redux/actions/alertActions';
 import PropTypes from 'prop-types';
 import {registerUser} from '../redux/actions/authActions';
 
-const Register = (props) => {
+const Register = ({registerUser, setAlert, auth}) => {
     const initState = {
         name: '',
         email: '',
@@ -27,7 +27,7 @@ const Register = (props) => {
         e.preventDefault();
         if(user.password !== user.confirmPassword){
             console.log('Password do not match');
-            props.setAlert('Password do not match', 'danger')
+            setAlert('Password do not match', 'danger')
         } else {
             console.log(user);
             const newUser = {
@@ -35,10 +35,10 @@ const Register = (props) => {
                 email: user.email,
                 password: user.password
             }
-            props.registerUser(newUser);
+            registerUser(newUser);
         }
     }
-    if(props.isAuthenticated){
+    if(auth.isAuthenticated && auth.user){
         // props.setAlert('Registration Completed. Redirecting to Homepage', 'success', 3000);
         // setTimeout(() => {
             router.push('/dashboard')
@@ -89,12 +89,12 @@ const Register = (props) => {
 Register.propTypes = {
     setAlert: PropTypes.func.isRequired,
     registerUser: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool
+    auth: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => {
     return {
-        isAuthenticated: state.auth.isAuthenticated
+        auth: state.auth
     }
 }
 export default connect(mapStateToProps, {setAlert, registerUser})(Register);

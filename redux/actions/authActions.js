@@ -30,7 +30,7 @@ export const registerUser = (user) => async dispatch => {
             payload: res.data.token
         })
         dispatch(loadUser());
-        dispatch(setAlert('Register Success. Please Login to continue', 'success', 3000));
+        // dispatch(setAlert('Register Success. Please Login to continue', 'success', 3000));
     } catch (err) {
         const errors = err.response.data.errors;
         if(errors){

@@ -7,7 +7,7 @@ import {loginUser} from '../redux/actions/authActions';
 import {setAlert} from '../redux/actions/alertActions';
 import PropTypes from 'prop-types';
 
-const Login = (props) => {
+const Login = ({loginUser, auth}) => {
     const[user, setUser] = useState({
         email: '',
         password: ''
@@ -24,10 +24,10 @@ const Login = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(user);
-        props.loginUser(user);
+        loginUser(user);
     }
 
-    if(props.isAuthenticated){
+    if(auth.isAuthenticated && auth.user){
         // props.setAlert('Login Success. Redirecting to Homepage', 'success', 3000);
         // setTimeout(() => {
             router.push('/dashboard')
@@ -62,12 +62,12 @@ const Login = (props) => {
 Login.propTypes = {
     loginUser : PropTypes.func.isRequired,
     setAlert: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool,
+    auth: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => {
     return {
-        isAuthenticated: state.auth.isAuthenticated
+        auth: state.auth
     }
 }
 export default connect(mapStateToProps, {loginUser, setAlert})(Login);
