@@ -10,7 +10,7 @@ const requireUser = (handler) => {
         jwt.verify(token, 'dev-central', (err, decodedToken) => {
             if(err){
                 req.userId = 0;
-                res.status(401).json({status: false, message : 'Invalid Token'});
+                res.status(401).json({errors : ['Invalid Token']});
             }else{
                 console.log(decodedToken);
                 req.userId = decodedToken.id;

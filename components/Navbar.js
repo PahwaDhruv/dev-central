@@ -24,7 +24,7 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
     return(
         <nav className="navbar bg-dark">
         <h1>
-            <Link href="/"><a href="dashboard.html"><i className="fas fa-code"></i> DevCentral</a></Link>
+            <Link href="/"><a><i className="fas fa-code"></i> DevCentral</a></Link>
         </h1>
         {
             !loading && (

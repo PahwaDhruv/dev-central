@@ -6,11 +6,15 @@ const Post = () => {
     const[user, setUser] = useState('Guest');
 
     useEffect(async () => {
-        const res = await axios.get('/api/posts');
-        console.log(res.data);
-        if(res.data){
-            setIsLogged(res.data.status);
-            setUser(res.data.user.name);
+        try {
+            const res = await axios.get('/api/posts');
+            console.log(res.data);
+            if(res.data){
+                setIsLogged(res.data.status);
+                setUser(res.data.user.name);
+            }
+        } catch (err) {
+            console.log(err)
         }
         
     }, []);

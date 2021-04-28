@@ -60,7 +60,9 @@ export const loginUser = (auth) => async dispatch => {
     } catch (err) {
         const errors = err.response.data.errors;
         if(errors){
-            errors.forEach(error => dispatch(setAlert(error, 'danger')))
+            errors.forEach((error, idx) => setTimeout(() => {
+                dispatch(setAlert(error, 'danger'))
+            }, idx * 1000))
         }
         console.log(err.message)
         dispatch({

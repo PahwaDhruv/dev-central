@@ -41,7 +41,7 @@ const Register = (props) => {
     if(props.isAuthenticated){
         // props.setAlert('Registration Completed. Redirecting to Homepage', 'success', 3000);
         // setTimeout(() => {
-            router.push('/')
+            router.push('/dashboard')
         // }, 3000)
     }
     return (

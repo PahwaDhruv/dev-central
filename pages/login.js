@@ -28,9 +28,9 @@ const Login = (props) => {
     }
 
     if(props.isAuthenticated){
-        // props.setAlert('Login Success. Redirecting to Homepage', 'success', 1);
+        // props.setAlert('Login Success. Redirecting to Homepage', 'success', 3000);
         // setTimeout(() => {
-            router.push('/')
+            router.push('/dashboard')
         // }, 3000)
     }
 
