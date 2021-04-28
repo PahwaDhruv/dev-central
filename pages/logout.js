@@ -24,8 +24,10 @@ const Logout = ({auth, logout}) => {
         logout();
     }, [])
 
-    if(!auth.isAuthenticated) {
-        router.push('/')
+    if(typeof window !== 'undefined'){
+        if(!auth.isAuthenticated) {
+            router.push('/')
+        }
     }
     
     return null;
