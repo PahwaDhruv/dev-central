@@ -27,11 +27,13 @@ const Logout = ({auth, logout}) => {
     if(!auth.isAuthenticated) {
         router.push('/')
     }
+    
     return null;
 }
 
 Logout.propTypes = {
-    logout: PropTypes.func.isRequired
+    logout: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => {
